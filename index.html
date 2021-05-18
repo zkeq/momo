@@ -1,0 +1,684 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+
+</style><title>123</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='墨墨记单词'><span>墨墨记单词</span></h1><h2 id='进阶使用说明'><span>进阶使用说明</span></h2><h3 id='1简单页面布局'><span>1.简单页面布局</span></h3><h4 id='事项'><span>事项</span></h4><ol start='' ><li><span>任务栏可以选择隐藏（沉浸式体验）</span></li><li><span>底栏可以隐藏（之后往右滑动进入其他页面哦）</span></li><li><span>可以选择暗色主题（好喜欢的）</span></li></ol><h4 id='设置方法'><span>设置方法</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-22-05-0886737545.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-22-05-0886737545"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-24-46-0595757737.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-24-46-0595757737"></p><p><span>效果图：</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-25-55-2032731913.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-25-55-2032731913"></p><h3 id='2平板横屏功能'><span>2.平板横屏功能</span></h3><h5 id='如果你用的是平板的话那么就喜提一个横屏功能超喜欢）'><span>如果你用的是平板的话，那么就喜提一个：横屏功能（超喜欢！）</span></h5><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-27-54-1125962705.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-27-54-1125962705"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-28-00-0878064765.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-28-00-0878064765"></p><h5 id='沉浸体验'><span>沉浸体验</span></h5><h3 id='3多端同步'><span>3.多端同步</span></h3><h4 id='同步备份功能分自动与手动'><span>同步备份功能分自动与手动</span></h4><p><span>自动：每次背完单词签到时</span></p><p><span>手动：自行选择上传备份按钮</span></p><h4 id='如果我们有2个设备想要一个设备背单词一个设备炫耀朋友圈的话误'><span>如果我们有2个设备，想要一个设备背单词，一个设备炫耀朋友圈的话（误)</span></h4><h4 id='我们就可以在a设备上选择上传备份再来到b设备上选择下载备份'><span>我们就可以在A设备上选择上传备份，再来到B设备上选择下载备份</span></h4><h4 id='而且这个时候会提示时间我们可以依此来判断到底是不是刚才的备份'><span>而且这个时候会提示时间，我们可以依此来判断到底是不是刚才的备份</span></h4><h4 id='图片说明'><span>图片说明：</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-33-34-1135890511.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-33-34-1135890511"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-33-26-0369134360.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-33-26-0369134360"></p><p><span>（从日志文件可以看出上传备份的情况）</span></p><h3 id='4关于字体'><span>4.关于字体</span></h3><p><span>墨墨是跟随系统字体的，这里希望大家不要采用太花哨的字体</span></p><p><span>我记单词比较喜欢棱角分明的字体，感觉这样更容易记住而且容易辨识</span></p><p><span>并且卷子上也是这样的字体，感觉这样记忆效果更好</span></p><h4 id='我的字体'><span>我的字体：</span></h4><h4 ><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/Screenshot_2021-05-18-13-37-01-1458139024.png" referrerpolicy="no-referrer" alt="Screenshot_2021-05-18-13-37-01-1458139024"></h4><h3 id='5复习有关的设置'><span>5.复习有关的设置</span></h3><p><span>背完单词，其实墨墨还附带了一个“复习”的功能</span></p><p><span>我们只需要点击日期。点击查看详情，就可以看到今天的识记情况。</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/9.png" referrerpolicy="no-referrer" alt="9"></p><p><span>注意哈：上面那三个栏默认是选中前两个的。</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/10.png" referrerpolicy="no-referrer" alt="10"></p><p><span>我们可以在右上角选择直接列表复习或者点击“再次复习”</span></p><p><span>可以选择识记方法</span></p><h4 id='有四个模式可以选择'><span>有四个模式可以选择</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/11.png" referrerpolicy="no-referrer" alt="11"></p><p><span>其他3个模式相信大家在背单词的时候已经使用过了，我来介绍一下“听力模式”</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/12.png" referrerpolicy="no-referrer" alt="12"></p><p><span>左下角可以快捷选择识记内容</span></p><p><span>点击右下角的更多之后</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/13.png" referrerpolicy="no-referrer" alt="13"></p><p><span>我们可以看到，更多选择</span></p><p><span>只不过例句功能需要额外购买哦。</span></p><h4 id='历史回顾功能需要使用单词词数开通我想官方应该是不建议使用的'><span>历史回顾功能需要使用单词词数开通，我想官方应该是不建议使用的</span></h4><p><span>因为历史回顾会造成新的短期记忆，而这个记忆过程没有在记忆曲线的统计范围内，下一次出现的时候，我们的短期记忆可能就被“误解”为长期记忆，造成偏差~</span></p><h3 id='6单词识别记忆的时候中英模式与英中模式'><span>6.单词识别记忆的时候“中英模式”与“英中模式”</span></h3><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/14.png" referrerpolicy="no-referrer" alt="14"></p><p><span>这个选择还是因人而异，如果应付近期考试，我想默认的方式很好用</span></p><p><span>而第二个模式我认为长期记忆的效果更好</span></p><h3 id='7关于时间安排'><span>7.关于时间安排</span></h3><p><span>墨墨官方的重置时间为每天的凌晨4:00</span></p><p><span>而现在我喜欢的是四点钟起床背完一天的单词</span></p><p><span>开始一天的工作和学习，这样不仅完成了任务，避免遗忘，而且每一天的开始都做一个成就感满满的事情，感觉更加开心了。</span></p><p><span>学习是一件很快乐的事情a！</span></p><h3 id='8单词上限问题'><span>8.单词上限问题</span></h3><p><span>我一开始任务一天400个单词，那买的4000个上限，应该很快就会用完</span></p><p><span>可是真正当我开始用的时候，发现事情没有这么简单</span></p><p><span>因为当我发现每天需要复习的单词，已经占据了我大部分的词汇规划</span></p><p><span>大概每天只能新学30-50个单词</span></p><h4 id='这里需要注意的是如果有一天你发现自己今天的任务量就是复习全部的单词'><span>这里需要注意的是：如果有一天你发现自己今天的任务量就是复习全部的单词。</span></h4><h4 id='一个都不新增的时候我们可以调高今日学习量'><span>一个都不新增的时候，我们可以调高今日学习量</span></h4><h4 id='这样可以看出来今天到底需要学习多少个单词尽量复习完所有的单词'><span>这样可以看出来今天到底需要学习多少个单词，尽量复习完所有的单词</span></h4><p><span>日常：尽量完成当天的计划任务</span></p><p><span>紧急情况？我们可以将今天的计划量调到10，这样就可以签到了...（还是不太建议..</span></p><h3 id='9单词本整本难度排行'><span>9.单词本整本难度排行</span></h3><p><span>选词界面右上角选择 书籍排行</span></p><p><span>可以看到所有已收录书籍的难度等级</span></p><p><span>了解自己在背的辞书到底属于哪一级？找好定位</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/16.png" referrerpolicy="no-referrer" alt="16"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/15.png" referrerpolicy="no-referrer" alt="15"></p><h3 id='10重点安利词汇量测试'><span>10.重点安利：词汇量测试</span></h3><p><span>（我愿称之为全网最准</span></p><p><a href='https://www.learnonly.xyz/'><span>LearnOnly导航</span></a><span>  这个是我自己的导航页（选择学习分区后 可以看到百词斩测词汇量和有道测词汇量的链接，他们的算法我感觉都不太准</span></p><p><span>而墨墨就不一样了 简直逆天~！ </span></p><p><span>当你故意或者有意选错的时候</span></p><p><span>前3次会有人声主动提示。而且依据你的选择程度，会有准确度哦！</span></p><p><span>（PS：我因为总想选的多一点，所以正确度疯狂走低...</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/18 (3).png" referrerpolicy="no-referrer" alt="18 (3)"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/18 (1).png" referrerpolicy="no-referrer" alt="18 (1)"></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/18 (2).png" referrerpolicy="no-referrer" alt="18 (2)"></p><p><span>感觉这个页面是个宝藏哦~ 大家满满发掘！</span></p><h3 id='11关于付费'><span>11.关于付费</span></h3><p><span>个人感觉这个定价可以接受</span></p><p><span>因为这个软件，他是确保你完全记住的（只要你诚实一点哈）</span></p><p><span>按成绩说话的话，自己成绩从75提到了102（高三），而且我才用了2周</span></p><p><span>所以才用了这篇文章..</span></p><p><span>而且交一点钱的话，也是对自己的一种监督，这样更有动力一些。</span></p><p><span>况且整个软件无广告，也需要费用来维持服务器的相关开支。</span></p><p><span>并且墨墨的算法开发也需要很多成本8.</span></p><h3 id='12亮点总结感觉不是一个人在学习'><span>12.亮点总结：感觉不是一个人在学习</span></h3><p><span>翻开助记扩展，会看到很多真实的用户上传的词条，真的很有意思</span></p><p><span>仿佛墨墨就是一个社区，社区里面的每个人都因这个社区而获益</span></p><p><span>反过来，每个人也在更加努力的去建设这个社区</span></p><h4 id='值得一提的相比就是-精益-功能了看到不正确的内容时可以选择精益'><span>值得一提的相比就是 精益 功能了，看到不正确的内容时可以选择精益</span></h4><p><span>更正相关内容，并且词书界面的右上角可以进行精益投票，为墨墨做出自己的贡献！</span></p><p><span>（个人认为这个 精益 单方面的有些槽点哈，建议如果是双方都活跃的话，能不能增加多轮修正，或者个人其他用户不仅仅是投票，而且可以进行修正补充反面的操作）</span></p><h3 id='13与其他产品的区别'><span>13.与其他产品的区别</span></h3><p><span>我记过bzc</span></p><p><span>emmm看图片可以记住，不过总感觉好被动</span></p><p><span>而且动画的时间好长...感觉好浪费时间</span></p><p><span>只是我感觉墨墨更适合我~</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/19.jpg" referrerpolicy="no-referrer" alt="19"></p><h4 id='而且这个bzc总感觉太慢了界面有些太好看'><span>而且这个bzc，总感觉太慢了，界面有些太好看</span></h4><p><span>怎么说呢？有一种华而不实的感觉。</span></p><p><span>总让我感觉自己在给别人背单词....动画太慢了，好心急.</span></p><h3 id='14为什么墨墨可以让我记住单词'><span>14.为什么墨墨可以让我记住单词？</span></h3><p><span>我想，很重要的一个原因就是：墨墨让我更主动的记单词。</span></p><p><span>打开墨墨，整个屏幕的有效信息 就只有一个 单词</span></p><p><span>你记也行 不记也行，你的屏幕现在就被这个单词占据，我想这样的记忆方法更有效~</span></p><p><span>而且我认为强大的记忆算法也功不可没！</span></p><h3 id='15签到的人性化设计'><span>15.签到的人性化设计</span></h3><p><span>墨墨的签到补签</span></p><p><span>不是补上某个漏签的时间</span></p><p><span>而是将当前连续签到天数改到历史最高的连续签到天数，重续辉煌！</span></p><h3 id='16关于签到的小插曲'><span>16.关于签到的小插曲..</span></h3><p><span>就是有一天我 背完单词之后，忘记点击 peng 签到了</span></p><p><span>结果那一天是显示断签的，感觉有点不爽~</span></p><h3 id='17关于标记熟识'><span>17.关于标记熟识</span></h3><p><span>大家遇到地名或者很长的人名时，我认为完全没有必要去记....</span></p><p><span>点击右上角的三个点，或者上划“认识”标记熟识</span></p><h4 id='这点我认为墨墨完全可以对词语增加一个分类地名因为记忆地名感觉没有什么必要因为大部分都是音译过来的'><span>这点我认为墨墨完全可以对词语增加一个分类“地名”，因为记忆地名感觉没有什么必要，因为大部分都是音译过来的。</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/19.png" referrerpolicy="no-referrer" alt="19"></p><h3 id='18发音次数'><span>18.发音次数</span></h3><p><span>这个可以在设置里找到，个人认为不易过多，记单词理想状态是进入心流状态</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/image-20210518185605748.png" referrerpolicy="no-referrer" alt="image-20210518185605748"></p><p><span>简单的概括 </span></p><h4 id='紧张-刺激-不累-应该就是最理想的学习状态大家可以适当调整'><span>紧张 刺激 不累 应该就是最理想的学习状态，大家可以适当调整</span></h4><h3 id='19对于熟悉的单词应该选择他的其他同义词或相近词进行记忆'><span>19.对于熟悉的单词，应该选择他的其他同义词或相近词进行记忆</span></h3><h4 id='而对于不太容易记住的单词应该去选择-巧记-来更牢固的记住单词'><span>而对于不太容易记住的单词，应该去选择 巧记 来更牢固的记住单词</span></h4><h3 id='20墨墨只是一个学习英语的软件吗'><span>20.墨墨只是一个学习英语的软件吗？</span></h3><p><span>不，我认为不是，从使用墨墨以来，几乎每天都在进入“心流状态”，这对我专注力的提升很重要</span></p><p><span>而且墨墨让我的记忆曲线更加平缓。关于这个记忆曲线，后文会介绍~</span></p><h3 id='21个人体验与纸质书配套使用'><span>21.个人体验：与纸质书配套使用</span></h3><p><span>个人不是整天都可以拿到手机，所以买了一本词汇书</span></p><p><span>单词前面有确认记忆方格</span></p><h4 id='先记完墨墨再一个个打方格的感觉真的很好'><span>先记完墨墨再一个个打方格的感觉，真的很好！</span></h4><h3 id='22思考学习是给自己学的'><span>22.思考：学习是给自己学的！</span></h3><p><span>经常碰到一些人，他们经常问时间还够不够？这个推荐的适不适合我？</span></p><p><span>我想说的是</span></p><h4 id='少问为什么对于一定要去做的事情没必要去问别人'><span>少问为什么，对于一定要去做的事情，没必要去问别人</span></h4><h4 id='对于不大适合自己的东西自己去试就行了'><span>对于不大适合自己的东西，自己去试就行了</span></h4><p><span>为什么要问别人呢？别人比你更了解自己吗？</span></p><p><span>每个人都是相对独立的个体，我们要更多的认识到自己，而不是跟随别人的看法。</span></p><h3 id='23其实学习我认为最重要的是快乐'><span>23.其实学习，我认为最重要的是快乐</span></h3><h4 id='要发自内心的热爱学习'><span>要发自内心的热爱学习</span></h4><p><span>（不是说风凉话哈，我认为记住自己正在学的东西</span></p><p><span>本身就是一件成就感满满的事情</span></p><p><span>每天都在充实自己，本身就很快乐a！</span></p><h3 id='24关于一百问'><span>24.关于一百问</span></h3><h4 id='我认为大家如果不是太熟悉墨墨的话可以去填一下'><span>我认为大家如果不是太熟悉墨墨的话，可以去填一下</span></h4><p><span>填完还有50单词上限的奖励哦~</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/24.png" referrerpolicy="no-referrer" alt="24"></p><h4 id='入口在设置那一栏的-帮助-那里'><span>入口在设置那一栏的 帮助 那里</span></h4><h3 id='25不要低估墨墨不要太注重ui'><span>25.不要低估墨墨，不要太注重UI</span></h3><p><span>可能大多数人和我一样刚入手墨墨的时候总是半信半疑，总感觉不太靠谱</span></p><p><span>可以真正用起来才发现就像菜根</span></p><p><span>“越嚼越香”</span></p><p><span>还有就是再次强调不要用太花哨的字体~</span></p><p><span>（至少我感觉字体对我的记忆影响很大、</span></p><h3 id='26墨墨与词典类应用的搭配使用'><span>26.墨墨与词典类应用的搭配使用</span></h3><p><span>因为我是平板，所以可以横屏来着，这样可以有一个查字典的动作。</span></p><p><span>并且查起来更方便~</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/26.png" referrerpolicy="no-referrer" alt="26"></p><p><span>关于词典类应用，在此下载</span></p><p><span>电脑版：</span><a href='https://learnonly-7.oss-cn-qingdao.aliyuncs.com/pc.exe' target='_blank' class='url'>https://learnonly-7.oss-cn-qingdao.aliyuncs.com/pc.exe</a></p><p><span>手机版：</span><a href='https://learnonly-7.oss-cn-qingdao.aliyuncs.com/phone.apk' target='_blank' class='url'>https://learnonly-7.oss-cn-qingdao.aliyuncs.com/phone.apk</a></p><h3 id='27墨墨内置-快捷词典查词'><span>27.墨墨内置 快捷词典查词</span></h3><p><span>长按选词或者选择放大镜，可以快速查词哦，还可以加入规划</span></p><h3 id='28环境选择'><span>28.环境选择</span></h3><p><span>尽量选择 无打扰，安静的环境，这样更容易进入心流状态。</span></p><h3 id='29注意事项'><span>29.注意事项</span></h3><h4 id='买单词一定要去官网买哦'><span>买单词一定要去官网买哦</span></h4><p><span>这样会多赠送10%！！</span></p><h3 id='30其他进阶使用技巧'><span>30.其他进阶使用技巧</span></h3><h4 id='连大屏幕'><span>连大屏幕</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/34.jpg" referrerpolicy="no-referrer" alt="34"></p><p><span>参见：&quot;QtScrcpy 1.6.0 </span><a href='https://github.com/barry-ran/QtScrcpy' target='_blank' class='url'>https://github.com/barry-ran/QtScrcpy</a><span>&quot;</span></p><h3 id='31导入词书'><span>31.导入词书</span></h3><p><span>可以自定义选择导入词书</span></p><h4 id='官方教程'><span>官方教程~</span></h4><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/35.png" referrerpolicy="no-referrer" alt="35"></p><p><span>感觉很实用哦。</span></p><h3 id='32悬浮窗手势'><span>32.悬浮窗手势</span></h3><p><span>这个在设置可以找到</span></p><p><span>值得一提的是</span></p><h4 id='右滑是返回上一个单词哦'><span>右滑是返回上一个单词哦~</span></h4><h3 id='33别人说的再好你不去做那也还是别人的'><span>33.别人说的再好，你不去做，那也还是别人的</span></h3><h3 id='34个人感悟总感觉自己点-认识的那一刻记忆的效果真的好很多相比于点击不认识可能多一些心理压力对自己的要求也更高了'><span>34.个人感悟：总感觉自己点 认识的那一刻，记忆的效果真的好很多。（相比于点击不认识，可能多一些心理压力，对自己的要求也更高了~</span></h3><h3 id='35墨墨的周边在每天背完单词后'><span>35.墨墨的周边，在每天背完单词后</span></h3><p><span>下面会有墨墨的周边商场，里面的词书都是按选择人数最多的编排的。大家有能力可以去支持下哦~</span></p><h3 id='36做自己为自己定制'><span>36.做自己，为自己定制</span></h3><h4 id='用墨墨最棒的体验就是真正感觉到了仿佛这个软件就是为自己定制的满满的学习动力'><span>用墨墨最棒的体验就是，真正感觉到了仿佛这个软件就是为自己定制的。满满的学习动力！</span></h4><h3 id='37顽固单词的复习'><span>37.顽固单词的复习</span></h3><h4 id='这个也是我认为很棒的一个点'><span>这个也是我认为很棒的一个点</span></h4><p><span>当你打开选词页面</span></p><p><span>会看到一个 特殊词汇</span></p><p><span>里面除了有你已经标记熟识的地名</span></p><p><span>更重要的就是多次不认识的顽固词汇</span></p><p><span>我们可以全选，然后选择 复习。</span></p><p><span>增加这些顽固词汇的识记程度~</span></p><p><img src="https://learnonly-7.oss-cn-qingdao.aliyuncs.com/momo/41.png" referrerpolicy="no-referrer" alt="41"></p><p><span>看到这里，说明你是一个专注力很强，很乐意去学习的人~</span></p><p><span>加油加油！</span></p><p><span>期待大家都能学有所成哦！</span></p></div></div>
+</body>
+</html>
